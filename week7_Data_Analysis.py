@@ -1,8 +1,4 @@
-# =============================================
-# Assignment: Data Analysis with Pandas & Matplotlib
-# Author: Aaron Kimutai
-# =============================================
-
+# week7_Data_Analysis.py
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -11,9 +7,8 @@ from sklearn.datasets import load_iris
 # Optional: set seaborn style for better visuals
 sns.set(style="whitegrid")
 
-# =============================================
+
 # Task 1: Load and Explore the Dataset
-# =============================================
 try:
     iris = load_iris()
     df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
@@ -30,22 +25,19 @@ print(df.head(), "\n")
 print("Missing values in each column:")
 print(df.isnull().sum(), "\n")
 
-# =============================================
+
 # Task 2: Basic Data Analysis
-# =============================================
 # Compute basic statistics for numerical columns
 print("Basic statistics for numerical columns:")
 print(df.describe(), "\n")
 
 # Group by species and calculate mean of numerical columns
-grouped = df.groupby('species', observed=True).mean()  # observed=True avoids FutureWarning
+grouped = df.groupby('species', observed=True).mean()  
 print("Mean of numerical columns grouped by species:")
 print(grouped, "\n")
 
-# =============================================
-# Task 3: Data Visualization
-# =============================================
 
+# Task 3: Data Visualization
 # 1. Line plot: Trends of sepal length across samples
 plt.figure(figsize=(8,5))
 plt.plot(df['sepal length (cm)'], marker='o', linestyle='-', color='b')
@@ -80,9 +72,8 @@ plt.ylabel('Petal Length (cm)')
 plt.legend(title='Species')
 plt.show()
 
-# =============================================
+
 # Findings / Observations
-# =============================================
 print("\nFindings / Observations:")
 print("1. Setosa has smaller petal and sepal sizes compared to other species.")
 print("2. Virginica shows the largest petal lengths and widths on average.")
